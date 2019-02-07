@@ -36,7 +36,7 @@ public class SimpleKafkaConsumer {
     private String kafkaGroupId;
 //    @Autowired
 //    private KafkaConsumer<String, String> kafkaConsumer;
-private KafkaConsumer<String, String> kafkaConsumer;
+    private KafkaConsumer<String, String> kafkaConsumer;
 
     public SimpleKafkaConsumer(String theTechCheckTopicName, Properties consumerProperties) {
 

@@ -36,22 +36,4 @@ public class KafkaConfig {
         return new KafkaProducer<>(producerProperties);
     }
 
-    @Bean
-    public KafkaConsumer<String, String> kafkaConsumer(){
-        System.out.println("Kafka bean created");
-
-        Properties consumerProperties = new Properties();
-        consumerProperties.put("bootstrap.servers", kafkaBootstrapServers);
-        consumerProperties.put("group.id", kafkaGroupId);
-        consumerProperties.put("zookeeper.session.timeout.ms", "6000");
-        consumerProperties.put("zookeeper.sync.time.ms","2000");
-        consumerProperties.put("auto.commit.enable", "false");
-        consumerProperties.put("auto.commit.interval.ms", "1000");
-        consumerProperties.put("consumer.timeout.ms", "-1");
-        consumerProperties.put("max.poll.records", "1");
-        consumerProperties.put("value.deserializer", "org.apache.kafka.common.serialization.StringDeserializer");
-        consumerProperties.put("key.deserializer", "org.apache.kafka.common.serialization.StringDeserializer");
-
-        return new KafkaConsumer<String, String>(consumerProperties);
-    }
 }

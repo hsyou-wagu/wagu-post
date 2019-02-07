@@ -13,7 +13,8 @@ import org.springframework.stereotype.Service;
 @Service
 public class KafkaProvider {
 
-    private static final ObjectMapper OBJECT_MAPPER = new ObjectMapper();
+    @Autowired
+    private ObjectMapper objectMapper;
     @Value("${kafka.topic.post}")
     private String postTopicName;
 
@@ -22,13 +23,13 @@ public class KafkaProvider {
 
     public void sendPostMessage(PostDTO postDTO){
         try {
-            String value = OBJECT_MAPPER.writeValueAsString(postDTO);
+            String value = objectMapper.writeValueAsString(postDTO);
 
             log.info("send "+value);
             kafkaProducer.send(new ProducerRecord<>(postTopicName, value));
 
         }catch(Exception ex){
-            log.error(ex.getMessage());
+            log.error(ex.toString());
         }
     }
 }
