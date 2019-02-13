@@ -1,4 +1,4 @@
-package com.hsyou.wagupost.service;
+package com.hsyou.wagupost;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.hsyou.wagupost.model.PostDTO;
@@ -7,10 +7,11 @@ import org.apache.kafka.clients.producer.KafkaProducer;
 import org.apache.kafka.clients.producer.ProducerRecord;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Service;
 
 @Slf4j
-@Service
+@Component
 public class KafkaProvider {
 
     @Autowired

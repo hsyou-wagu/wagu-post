@@ -21,17 +21,17 @@ public class CommentService {
     @Autowired
     private ObjectMapper objectMapper;
 
-    @Autowired
-    private EurekaClient discoveryClient;
+//    @Autowired
+//    private EurekaClient discoveryClient;
 
     @HystrixCommand(fallbackMethod = "reliable")
     public List<CommentDTO> requestComment(long postId){
-        String url = discoveryClient.getNextServerFromEureka("wagu-comment", false).getHomePageUrl();
-        String response = restTemplate.getForObject (url+"/"+postId, String.class);
+//        String url = discoveryClient.getNextServerFromEureka("wagu-comment", false).getHomePageUrl();
+//        String response = restTemplate.getForObject (url+"/"+postId, String.class);
 
         try {
-            return Arrays.asList(objectMapper.readValue(response, CommentDTO[].class));
-
+//            return Arrays.asList(objectMapper.readValue(response, CommentDTO[].class));
+            return Collections.emptyList();
         } catch (Exception ex){
             return Collections.emptyList();
         }
