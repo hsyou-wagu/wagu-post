@@ -25,7 +25,6 @@ import java.util.Optional;
 @Transactional
 public class PostService implements ApplicationEventPublisherAware{
 
-
     @Autowired
     private PostRepository postRepository;
     @Autowired
